@@ -12,6 +12,7 @@ ImageFile.LOAD_TRUNCATED_IMAGES = True
 strPDF = ""
 textScanned = ""
 dirName = ["images", "output_txt"]
+textScanned = ""
 
 # Get input from User
 def gInUs():
@@ -81,18 +82,18 @@ def extIm(fileStr):
     reImg()
 
 def reImg():
+    # Global var
     global textScanned
+    global dirName
+
 
     pytesseract.pytesseract.tesseract_cmd = r'R:/Programas\Tesseract\tesseract.exe'
 
-    
+
     # List the images
     content = os.listdir('images')
 
     for i in range(len(content)):
-        # Global var
-        global dirName
-
         # Reading each image in images
         image = cv2.imread(f'images/{content[i]}')
 
@@ -106,16 +107,16 @@ def reImg():
         # print
         print(Fore.GREEN + "[!] Finished scan text" + Fore.RESET)
 
-        # Create and write file txtResult.txt
-        print(Fore.CYAN + "[.] Writing txtResult.txt" + Fore.RESET)
-        fileTxt = open(f"{dirName[1]}/txtResult.txt", "w")
-        fileTxt.write(text)
-        print(Fore.GREEN + "[!] File Writted" + Fore.RESET)
 
         # Showing img input
         cv2.imshow('Image',image)
         # 0.5 milisecond
-        cv2.waitKey(500)
-        cv2.destroyAllWindows()
+        cv2.waitKey(1000)
+
+    # Create and write file txtResult.txt
+    print(Fore.CYAN + "[.] Writing txtResult.txt" + Fore.RESET)
+    fileTxt = open(f"{dirName[1]}/txtResult.txt", "w")
+    fileTxt.write(textScanned)
+    print(Fore.GREEN + "[!] File Writted" + Fore.RESET)
 # Call to fun main
 gInUs()
