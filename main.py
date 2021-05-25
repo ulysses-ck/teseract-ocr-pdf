@@ -5,19 +5,22 @@ import cv2
 import io
 from PIL import Image, ImageFile
 from colorama import Fore, init
+import platform
 
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 # Global var
-strPDF = ""
-textScanned = ""
-dirName = ["images", "output_txt"]
-textScanned = ""
+strPDF, textScanned,  textScanned, inputTeEx, dirName = "","","","", ["images", "output_txt"]
 
 # Get input from User
 def gInUs():
-
+    # Global var
     global strPDF
+    global inputTeEx
+
+    if(platform.system() == "Windows"):
+        print(Fore.YELLOW + "[.] Insert path to your tesseract.exe" + Fore.RESET)
+        inputTeEx = input()
 
     # Print input
     print(Fore.GREEN + "[!] Insert path to PDF file:" + Fore.RESET)
@@ -26,7 +29,7 @@ def gInUs():
 
     # Print an alert if input is not valid, if not, call to fun reDoc
     if(inputUser == "" or len(inputUser.split("\\"))  == 1):
-        print(Fore.RED + "Please put a valid PATH to a file" + Fore.RESET)
+        print(Fore.RED + "[X] Please put a valid PATH to a file" + Fore.RESET)
     else:
         extIm(inputUser)
     # -------------
@@ -85,9 +88,10 @@ def reImg():
     # Global var
     global textScanned
     global dirName
+    global inputTeEx
 
 
-    pytesseract.pytesseract.tesseract_cmd = r'R:/Programas\Tesseract\tesseract.exe'
+    pytesseract.pytesseract.tesseract_cmd = f"{inputTeEx}"
 
 
     # List the images
