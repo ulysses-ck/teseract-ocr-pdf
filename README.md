@@ -3,12 +3,12 @@ It´s a script extract PDF´s images and use **tesseract OCR** for scan it
 
 ## Pre-installation dependencies
 Before you can run it, you need to install Python 3.8, onwards, and tesseract OCR
-## Python 3
+### Python 3
 You can download for your OS from their [Oficial Download Page](https://www.python.org/downloads/)
 
-## tesseract
+### tesseract
 
-### Windows
+#### Windows
 For Windows, you can download the unofficial installer from the [official GitHub Repository](https://github.com/tesseract-ocr/tesseract/wiki#windows).
 
 ## Install dependencies
