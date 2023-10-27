@@ -9,7 +9,7 @@ You can download for your OS from their [Oficial Download Page](https://www.pyth
 ### tesseract
 
 #### Windows
-For Windows, you can download the unofficial installer from the [official GitHub Repository](https://github.com/tesseract-ocr/tesseract/wiki#windows).
+For Windows, you can download the binary installer from [here](https://github.com/UB-Mannheim/tesseract/wiki).
 
 ## Install dependencies
 
